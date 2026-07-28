@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-paragraph font-sans;
+    background-color: #020617;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background-color: rgba(6, 182, 212, 0.25);
+    color: #f8fafc;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-heading font-semibold;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #020617;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 9999px;
+    border: 2px solid #020617;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+
+  /* Focus ring */
+  :focus-visible {
+    outline: 2px solid #22d3ee;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-6 sm:px-8 lg:px-10;
+  }
+
+  .section-padding {
+    @apply py-24 sm:py-28 lg:py-32;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-border bg-card/60 backdrop-blur-xl;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(30, 41, 59, 0.4) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(30, 41, 59, 0.4) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-b from-heading to-paragraph bg-clip-text text-transparent;
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.15),
+      0 0 40px -8px rgba(6, 182, 212, 0.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

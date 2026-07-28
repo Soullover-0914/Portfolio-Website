@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jyothi-swaroop.example.com/sitemap.xml
